@@ -1,0 +1,37 @@
+<div class="container-formulario">
+  <h2>Adicionar Item Manualmente</h2>
+
+  <form [formGroup]="formulario" (ngSubmit)="adicionarDesejo()">
+    
+    <!-- Campo Nome -->
+    <div class="campo">
+      <label for="nome">Nome do Produto:</label>
+      <input id="nome" type="text" formControlName="nome" placeholder="Ex: Livro de C#">
+      
+      <!-- Mensagem de erro somente se for inválido e tiver sido tocado -->
+      <div *ngIf="formulario.get('nome')?.invalid && formulario.get('nome')?.touched" class="erro">
+        O nome do produto é obrigatório.
+      </div>
+    </div>
+
+    <!-- Campo Prioridade -->
+    <div class="campo">
+      <label for="prioridade">Prioridade:</label>
+      <select id="prioridade" formControlName="prioridade">
+        <option value="">Selecione...</option>
+        <option value="Baixa">Baixa</option>
+        <option value="Média">Média</option>
+        <option value="Alta">Alta</option>
+      </select>
+
+      <!-- Mensagem de erro somente se for inválido e tiver sido tocado -->
+      <div *ngIf="formulario.get('prioridade')?.invalid && formulario.get('prioridade')?.touched" class="erro">
+        Selecione uma prioridade.
+      </div>
+    </div>
+
+    <!-- Botão desabilitado se o formulário for inválido -->
+    <button type="submit" [disabled]="formulario.invalid">Adicionar à Lista</button>
+
+  </form>
+</div>
