@@ -1,0 +1,44 @@
+.container-formulario {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #E6E6FA; /* Lavender */
+  border-radius: 8px;
+}
+
+.campo {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.erro {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+button {
+  background-color: #B0E0E6; /* Powderblue */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
