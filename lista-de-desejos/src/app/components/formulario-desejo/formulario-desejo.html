@@ -1,12 +1,12 @@
 <div class="container-formulario">
   <h2>Adicionar Item à Lista de Desejos</h2>
 
-  <form [formGroup]="formGroup" (ngSubmit)="salvarDesejo()">
-    
+  <form [formGroup]="formulario" (ngSubmit)="adicionarDesejo()">
+
     <div class="campo">
       <label for="nome">Nome do Produto:</label>
       <input type="text" id="nome" formControlName="nome" />
-      <div *ngIf="formGroup.get('nome')?.invalid && formGroup.get('nome')?.touched" class="erro">
+      <div *ngIf="formulario.get('prioridade')?.invalid && formulario.get('prioridade')?.touched" class="erro">
         O nome do produto é obrigatório.
       </div>
     </div>
@@ -19,12 +19,12 @@
         <option value="Média">Média</option>
         <option value="Alta">Alta</option>
       </select>
-      <div *ngIf="formGroup.get('prioridade')?.invalid && formGroup.get('prioridade')?.touched" class="erro">
+      <div *ngIf="formulario.get('prioridade')?.invalid && formulario.get('prioridade')?.touched" class="erro">
         Selecione uma prioridade.
       </div>
     </div>
 
-    <button type="submit" [disabled]="formGroup.invalid">
+    <button type="submit" [disabled]="formulario.invalid">
       Adicionar Desejo
     </button>
 
