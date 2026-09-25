@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListaDesejosService } from '../../services/lista-desejos';
+import { ListaDesejos} from '../../services/lista-desejos';
 
 @Component({
   imports: [],
@@ -8,6 +8,6 @@ import { ListaDesejosService } from '../../services/lista-desejos';
   templateUrl: './catalogo-produtos.html',
 })
 export class CatalogoProdutos {
-  constructor(private listaDesejosService: ListaDesejosService) {}
+  constructor(private listaDesejosService: ListaDesejos) {}
 
 }
