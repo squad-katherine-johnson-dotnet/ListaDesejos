@@ -6,7 +6,7 @@ import { Produto } from '../models/produto';
 @Injectable({
   providedIn: 'root'
 })
-export class ListaDesejosService {
+export class ListaDesejos {
 
   private apiUrl = 'https://fakestoreapi.com/products';
 
