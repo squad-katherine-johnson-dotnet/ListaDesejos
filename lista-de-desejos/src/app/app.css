@@ -1,0 +1,21 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 20px;
+  background-color: #007bff;
+}
+
+.menu a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.menu span {
+  color: white;
+}

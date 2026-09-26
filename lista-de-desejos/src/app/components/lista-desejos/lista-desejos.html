@@ -1,0 +1,36 @@
+<div class="container-lista">
+  <h2>Minha Lista de Desejos</h2>
+
+  <div *ngIf="desejos.length === 0" class="lista-vazia">
+    <p>Sua lista de desejos está vazia.</p>
+  </div>
+
+  <div *ngIf="desejos.length > 0" class="lista">
+    <div class="desejo" *ngFor="let desejo of desejos">
+
+      <img
+        [src]="desejo.produto.image"
+        [alt]="desejo.produto.title"
+      />
+
+      <div class="informacoes">
+        <h3>{{ desejo.produto.title }}</h3>
+
+        <p>
+          Prioridade:
+          <span [ngClass]="'prioridade-' + desejo.prioridade">
+            {{ desejo.prioridade }}
+          </span>
+        </p>
+      </div>
+
+      <button
+        type="button"
+        (click)="removerDesejo(desejo.produto.id)"
+      >
+        Remover
+      </button>
+
+    </div>
+  </div>
+</div>

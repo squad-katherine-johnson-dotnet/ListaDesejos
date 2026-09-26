@@ -1,0 +1,68 @@
+.container-lista {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.container-lista h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.lista-vazia {
+  text-align: center;
+  padding: 40px;
+}
+
+.desejo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.desejo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.informacoes {
+  flex: 1;
+}
+
+.informacoes h3 {
+  margin: 0 0 10px;
+}
+
+.prioridade-baixa {
+  color: green;
+  font-weight: bold;
+}
+
+.prioridade-media {
+  color: orange;
+  font-weight: bold;
+}
+
+.prioridade-alta {
+  color: red;
+  font-weight: bold;
+}
+
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #b02a37;
+}
