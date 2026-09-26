@@ -2,33 +2,35 @@ import { Injectable } from '@angular/core';
 import { Desejo } from '../models/desejo';
 import { HttpClient } from '@angular/common/http';
 import { Produto } from '../models/produto';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListaDesejos {
+export class ListaDesejosService {
 
-  private apiUrl = 'https://fakestoreapi.com/products';
+  private readonly apiUrl = 'https://fakestoreapi.com/products';
 
   constructor(private http: HttpClient) { }
 
   private desejos: Desejo[] = [];
 
-  buscarProdutos() {
+  buscarProdutos(): Observable<Produto[]> {
 
     return this.http.get<Produto[]>(this.apiUrl);
   }
 
-  buscarProdutoPorId(id: number) {
+  buscarProdutoPorId(id: number): Observable<Produto> {
 
     return this.http.get<Produto>(`${this.apiUrl}/${id}`);
   }
 
-  buscarDesejos() {
+  buscarDesejos(): Desejo[] {
+
     return this.desejos;
   }
 
-  adicionarDesejo(desejo: Desejo) {
+  adicionarDesejo(desejo: Desejo): void {
 
     const jaExiste = this.desejos.some(item => item.produto.id === desejo.produto.id);
 
@@ -37,7 +39,7 @@ export class ListaDesejos {
     }
   }
 
-  removerDesejo(produtoId: number) {
+  removerDesejo(produtoId: number): void {
 
     this.desejos = this.desejos.filter(desejo => desejo.produto.id !== produtoId);
   }

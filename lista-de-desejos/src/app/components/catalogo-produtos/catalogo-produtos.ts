@@ -1,12 +1,11 @@
-import { CommonModule} from '@angular/common'
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'
+import { Component, OnInit } from '@angular/core';
 import { Produto } from '../../models/produto';
-import { ListaDesejos } from '../../services/lista-desejos';
 import { RouterLink } from '@angular/router';
+import { ListaDesejosService } from '../../services/lista-desejos.service';
 
 @Component({
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, RouterLink],
   selector: 'app-catalogo-produtos',
   styleUrl: './catalogo-produtos.css',
   templateUrl: './catalogo-produtos.html',
@@ -14,11 +13,9 @@ import { RouterLink } from '@angular/router';
 
 export class CatalogoProdutos implements OnInit {
 
-   produtos: Produto[] = [];
+  produtos: Produto[] = [];
 
-  constructor(
-    @Inject(ListaDesejos) private listaDesejosService: ListaDesejos
-  ) {}
+  constructor(private listaDesejosService: ListaDesejosService) { }
 
   ngOnInit(): void {
     this.buscarProdutos();
