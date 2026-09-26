@@ -13,9 +13,6 @@ import { RouterLink } from '@angular/router';
 })
 
 export class CatalogoProdutos implements OnInit {
-adicionarDesejo(_t4: Produto) {
-throw new Error('Method not implemented.');
-}
 
    produtos: Produto[] = [];
 
