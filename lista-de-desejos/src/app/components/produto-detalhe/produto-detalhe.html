@@ -1,0 +1,17 @@
+<div *ngIf="produto" class="produto-detalhe">
+  <h2>{{ produto.title }}</h2>
+
+  <img
+    [src]="produto.image"
+    [alt]="produto.title"
+    width="200"
+  />
+
+  <p>{{ produto.description }}</p>
+
+  <p>
+    Preço: {{ produto.price | currency:'BRL' }}
+  </p>
+
+  <a routerLink="/">Voltar aos produtos</a>
+</div>
