@@ -14,6 +14,8 @@ import { ListaDesejosService } from '../../services/lista-desejos.service';
 export class CatalogoProdutos implements OnInit {
 
   produtos: Produto[] = [];
+  mensagem: string = '';
+  mostrarMensagem: boolean = false;
 
   constructor(
   private listaDesejosService: ListaDesejosService,
@@ -26,7 +28,7 @@ export class CatalogoProdutos implements OnInit {
 
   buscarProdutos(): void {
 
-    this.listaDesejosService.buscarProdutos().subscribe({
+    this.listaDesejosService.buscarProduto().subscribe({
 
       next: (produtos) => {
         this.produtos = produtos;
@@ -39,11 +41,22 @@ export class CatalogoProdutos implements OnInit {
     });
   }
   adicionarDesejo(produto: Produto): void {
-    
-    this.listaDesejosService.adicionarDesejo({
-      produto,
-      prioridade: 'media'
-    });
+    const jaExiste = this.listaDesejosService
+      .buscarDesejos()
+      .some(desejo => desejo.produto.id === produto.id);
+
+    if (jaExiste) {
+      this.mensagem = 'Esse produto já está na sua lista de desejos!';
+    } else {
+      this.listaDesejosService.adicionarDesejo({
+        produto,
+        prioridade: 'media'
+      });
+
+      this.mensagem = 'Produto adicionado à lista de desejos!';
+    }
+
+    this.mostrarMensagem = true;
   }
 
 }

@@ -1,17 +1,17 @@
 .container-formulario {
   max-width: 500px;
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
 }
 
-.container-formulario h2 {
-  margin-bottom: 20px;
-  color: #333333;
-  text-align: center;
-}
+  .container-formulario h2 {
+    margin-bottom: 20px;
+    color: #512da8;
+    text-align: center;
+  }
 
 .campo {
   margin-bottom: 15px;
@@ -19,25 +19,27 @@
   flex-direction: column;
 }
 
-.campo label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555555;
-}
+  .campo label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555555;
+  }
 
-.campo input,
-.campo select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
+  .campo input,
+  .campo select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #ffffff;
+  }
 
-.campo input:focus,
-.campo select:focus {
-  border-color: #007bff;
-  outline: none;
-}
+    .campo input:focus,
+    .campo select:focus {
+      border-color: #512da8;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(81, 45, 168, 0.15);
+    }
 
 .erro {
   color: #dc3545;
@@ -48,20 +50,71 @@
 button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #512da8;
   color: white;
   border: none;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-button:hover:not(:disabled) {
-  background-color: #0056b3;
+  button:hover:not(:disabled) {
+    background-color: #4527a0;
+  }
+
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+.modal {
+  width: 360px;
+  padding: 28px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  text-align: center;
 }
+
+  .modal h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #512da8;
+  }
+
+  .modal p {
+    margin-bottom: 25px;
+    color: #333;
+  }
+
+  .modal button {
+    width: 100%;
+    padding: 10px;
+    background-color: #512da8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+    .modal button:hover {
+      background-color: #4527a0;
+    }
