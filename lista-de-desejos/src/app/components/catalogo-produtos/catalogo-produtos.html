@@ -1,1 +1,30 @@
-<p>catalogo-produtos works!</p>
+<div class="catalogo">
+
+  <div class="card" *ngFor="let produto of produtos">
+
+    <img
+      [src]="produto.image"
+      [alt]="produto.title"
+    />
+
+    <h2>
+      {{ produto.title }}
+    </h2>
+
+    <p>
+      {{ produto.price | currency:'BRL' }}
+    </p>
+
+    <button (click)="adicionarDesejo(produto)">
+        Adicionar à lista de desejos
+      </button>
+
+        <a [routerLink]="['/produto', produto.id]">Ver detalhes</a>
+
+  </div>
+
+</div>
+
+<p *ngIf="produtos && produtos.length > 0">
+  Lista de produtos disponível.
+</p>

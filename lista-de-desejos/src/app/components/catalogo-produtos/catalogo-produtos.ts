@@ -1,13 +1,40 @@
-import { Component } from '@angular/core';
+import { CommonModule} from '@angular/common'
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Produto } from '../../models/produto';
 import { ListaDesejosService } from '../../services/lista-desejos';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  imports: [],
+  imports: [CommonModule, FormsModule, RouterLink],
   selector: 'app-catalogo-produtos',
   styleUrl: './catalogo-produtos.css',
   templateUrl: './catalogo-produtos.html',
 })
-export class CatalogoProdutos {
-  constructor(private listaDesejosService: ListaDesejosService) {}
 
+export class CatalogoProdutos implements OnInit {
+adicionarDesejo(_t4: Produto) {
+throw new Error('Method not implemented.');
+}
+
+   produtos: Produto[] = [];
+
+  constructor(
+    private listaDesejosService: ListaDesejosService
+  ) {}
+
+  ngOnInit(): void {
+    this.buscarProdutos();
+  }
+
+  buscarProdutos(): void {
+    this.listaDesejosService.buscarProdutos().subscribe({
+      next: (produtos) => {
+        this.produtos = produtos;
+      },
+      error: (erro) => {
+        console.error('Erro ao buscar produtos:', erro);
+      }
+    });
+  }
 }
