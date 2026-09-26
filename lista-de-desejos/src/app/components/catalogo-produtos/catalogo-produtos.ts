@@ -1,8 +1,8 @@
 import { CommonModule} from '@angular/common'
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Produto } from '../../models/produto';
-import { ListaDesejosService } from '../../services/lista-desejos';
+import { ListaDesejos } from '../../services/lista-desejos';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -17,7 +17,7 @@ export class CatalogoProdutos implements OnInit {
    produtos: Produto[] = [];
 
   constructor(
-    private listaDesejosService: ListaDesejosService
+    @Inject(ListaDesejos) private listaDesejosService: ListaDesejos
   ) {}
 
   ngOnInit(): void {
@@ -34,4 +34,11 @@ export class CatalogoProdutos implements OnInit {
       }
     });
   }
+  adicionarDesejo(produto: Produto): void {
+    this.listaDesejosService.adicionarDesejo({
+      produto,
+      prioridade: 'media'
+    });
+  }
+
 }

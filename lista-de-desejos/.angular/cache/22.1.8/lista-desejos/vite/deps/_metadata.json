@@ -1,45 +1,73 @@
 {
-  "hash": "b46cccca",
-  "configHash": "3231a46b",
-  "lockfileHash": "27c72226",
-  "browserHash": "8ca7229c",
+  "hash": "adb0cf67",
+  "configHash": "b76ba8c6",
+  "lockfileHash": "c0120f8e",
+  "browserHash": "7692d1a8",
   "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "36a6c01b",
+      "needsInterop": false
+    },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "33789af1",
+      "fileHash": "d59fba5a",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "9ea74e27",
+      "fileHash": "c9a2810c",
+      "needsInterop": false
+    },
+    "@angular/forms": {
+      "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
+      "file": "@angular_forms.js",
+      "fileHash": "ca0bace6",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "f4726706",
+      "fileHash": "f35ecf58",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "957051c7",
+      "fileHash": "5dfeff66",
       "needsInterop": false
     }
   },
   "chunks": {
+    "_xhr-chunk-wuPgaPVH": {
+      "file": "_xhr-chunk-wuPgaPVH.js",
+      "isDynamicEntry": false
+    },
+    "common-Z_Dj1zii": {
+      "file": "common-Z_Dj1zii.js",
+      "isDynamicEntry": false
+    },
     "core-Gi4yMOCN": {
       "file": "core-Gi4yMOCN.js",
       "isDynamicEntry": false
     },
-    "http-B795isyj": {
-      "file": "http-B795isyj.js",
+    "createObject-LvSR3GZh": {
+      "file": "createObject-LvSR3GZh.js",
       "isDynamicEntry": false
     },
-    "platform-browser-57nkAQ5I": {
-      "file": "platform-browser-57nkAQ5I.js",
+    "from-BIW1BDLG": {
+      "file": "from-BIW1BDLG.js",
+      "isDynamicEntry": false
+    },
+    "http-Bk7alJO1": {
+      "file": "http-Bk7alJO1.js",
+      "isDynamicEntry": false
+    },
+    "platform-browser-D0-ahQGA": {
+      "file": "platform-browser-D0-ahQGA.js",
       "isDynamicEntry": false
     }
   }
