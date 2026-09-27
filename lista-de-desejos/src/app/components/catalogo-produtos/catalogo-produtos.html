@@ -2,24 +2,24 @@
 
   <div class="card" *ngFor="let produto of produtos">
 
-    <img
-      [src]="produto.image"
-      [alt]="produto.title"
-    />
+    <div class="imagem-produto">
+      <img [src]="produto.image"
+           [alt]="produto.title" />
+    </div>
 
-    <h2>
-      {{ produto.title }}
-    </h2>
+    <h2>{{ produto.title }}</h2>
 
-    <p>
+    <p class="preco">
       {{ produto.price | currency:'BRL' }}
     </p>
 
     <button (click)="adicionarDesejo(produto)">
-        Adicionar à lista de desejos
-      </button>
+      Adicionar à lista de desejos
+    </button>
 
-        <a [routerLink]="['/produto', produto.id]">Ver detalhes</a>
+    <a [routerLink]="['/produto', produto.id]">
+      Ver detalhes
+    </a>
 
   </div>
 
@@ -28,3 +28,20 @@
 <p *ngIf="produtos && produtos.length === 0">
   Nenhum produto encontrado.
 </p>
+
+
+<div *ngIf="mostrarMensagem" class="overlay">
+
+  <div class="modal-mensagem">
+
+    <h3>Lista de Desejos</h3>
+
+    <p>{{ mensagem }}</p>
+
+    <button (click)="mostrarMensagem = false">
+      OK
+    </button>
+
+  </div>
+
+</div>

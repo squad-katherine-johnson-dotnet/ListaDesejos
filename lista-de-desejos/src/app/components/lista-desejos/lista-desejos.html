@@ -1,4 +1,5 @@
 <div class="container-lista">
+
   <h2>Minha Lista de Desejos</h2>
 
   <div *ngIf="desejos.length === 0" class="lista-vazia">
@@ -6,12 +7,19 @@
   </div>
 
   <div *ngIf="desejos.length > 0" class="lista">
+
     <div class="desejo" *ngFor="let desejo of desejos">
 
-      <img
-        [src]="desejo.produto.image"
-        [alt]="desejo.produto.title"
-      />
+      <ng-container *ngIf="desejo.produto.image; else imagemPlaceholder">
+        <img [src]="desejo.produto.image"
+             [alt]="desejo.produto.title" />
+      </ng-container>
+
+      <ng-template #imagemPlaceholder>
+        <div class="imagem-placeholder">
+          🛍️
+        </div>
+      </ng-template>
 
       <div class="informacoes">
         <h3>{{ desejo.produto.title }}</h3>
@@ -24,13 +32,13 @@
         </p>
       </div>
 
-      <button
-        type="button"
-        (click)="removerDesejo(desejo.produto.id)"
-      >
+      <button type="button"
+              (click)="removerDesejo(desejo.produto.id)">
         Remover
       </button>
 
     </div>
+
   </div>
+
 </div>
