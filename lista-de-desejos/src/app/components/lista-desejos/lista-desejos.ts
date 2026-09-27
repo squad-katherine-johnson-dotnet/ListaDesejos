@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListaDesejosService } from '../../services/lista-desejos.service';
 import { Desejo } from '../../models/desejo';
@@ -10,17 +10,23 @@ import { Desejo } from '../../models/desejo';
   templateUrl: './lista-desejos.html',
   styleUrl: './lista-desejos.css'
 })
-export class ListaDesejos {
+export class ListaDesejos implements OnInit {
 
-  constructor(private listaDesejosService: ListaDesejosService) {}
+  desejos: Desejo[] = [];
 
-  get desejos(): Desejo[] {
+  constructor(
+    private listaDesejosService: ListaDesejosService
+  ) { }
 
-    return this.listaDesejosService.buscarDesejos();
+  ngOnInit(): void {
+    this.listaDesejosService.desejos$.subscribe(
+      desejos => {
+        this.desejos = desejos;
+      }
+    );
   }
 
   removerDesejo(produtoId: number): void {
-
     this.listaDesejosService.removerDesejo(produtoId);
   }
 }

@@ -1,36 +1,136 @@
 .catalogo {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
   padding: 20px;
 }
 
 .card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
   background-color: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    background-color: #fafafa;
+    border-radius: 12px;
+  }
+
+  .card h2 {
+    min-height: 48px;
+    margin: 0 0 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #333;
+    text-align: center;
+  }
+
+  .card p {
+    margin: 0 0 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #512da8;
+    text-align: center;
+  }
+
+  .card button {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: auto;
+    border: none;
+    border-radius: 10px;
+    background-color: #512da8;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+    .card button:hover {
+      background-color: #4527a0;
+      transform: translateY(-1px);
+    }
+
+  .card a {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    color: #512da8;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+    .card a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.card h2 {
-  font-size: 18px;
-}
-
-.card button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.card a {
-  display: block;
-  margin-top: 10px;
+.modal-mensagem {
+  background-color: white;
+  width: 350px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
+
+  .modal-mensagem h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #512da8;
+    font-size: 20px;
+  }
+
+  .modal-mensagem p {
+    margin-bottom: 25px;
+    color: #333;
+  }
+
+  .modal-mensagem button {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #512da8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+    .modal-mensagem button:hover {
+      background-color: #4527a0;
+    }

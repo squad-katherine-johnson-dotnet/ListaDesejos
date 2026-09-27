@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+  Validators
+} from '@angular/forms';
+
 import { ListaDesejosService } from '../../services/lista-desejos.service';
 import { Produto } from '../../models/produto';
 import { Desejo } from '../../models/desejo';
@@ -19,10 +25,15 @@ export class FormularioDesejo {
     prioridade: new FormControl('', [Validators.required])
   });
 
-  constructor(private listaDesejosService: ListaDesejosService) {}
+  mensagem: string = '';
+  mostrarMensagem: boolean = false;
+
+  constructor(private listaDesejosService: ListaDesejosService) { }
 
   adicionarDesejo(): void {
+
     if (this.formulario.valid) {
+
       const { nome, prioridade } = this.formulario.value;
 
       const produto: Produto = {
@@ -42,6 +53,13 @@ export class FormularioDesejo {
       this.listaDesejosService.adicionarDesejo(desejo);
 
       this.formulario.reset();
+
+      this.mensagem = 'Produto adicionado à lista de desejos!';
+      this.mostrarMensagem = true;
     }
+  }
+
+  fecharMensagem(): void {
+    this.mostrarMensagem = false;
   }
 }
